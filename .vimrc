@@ -11,6 +11,7 @@ Plugin 'matze/vim-move'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'Raimondi/delimitMate'
 
 call vundle#end()
 filetype plugin indent on
@@ -59,6 +60,9 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.pyo$', '\.pyc$', '\.svn[\//]$', '\.swp$'
 map <C-o> :NERDTreeToggle<CR>
 " end if nerdtree is only remaining buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" delimiter expansion
+let delimitMate_expand_cr = 1
 
 " redraw
 map ;l :redraw!<CR>
