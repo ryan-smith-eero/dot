@@ -61,6 +61,9 @@ map <C-o> :NERDTreeToggle<CR>
 " end if nerdtree is only remaining buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" editorconfig
+let g:EditorConfig_core_mode = 'external_command'
+
 " delimiter expansion
 let delimitMate_expand_cr = 1
 

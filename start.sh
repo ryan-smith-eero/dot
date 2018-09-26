@@ -14,6 +14,10 @@ usermod -aG sudo ryan
 # leave root
 exit
 
+# configure git
+git config --global user.name "RPSeq"
+git config --global user.email "ryan.smith.p@gmail.com"
+
 # add non-free sources
 echo "deb http://httpredir.debian.org/debian/ stretch main contrib non-free" | sudo tee /etc/apt/sources.list.d/non-free.list
 
@@ -24,12 +28,13 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 # update sources and install
 sudo apt update
 sudo apt install \
-    sublime-text \
-    vim \
+    vim-gnome \
     curl \
+    sublime-text \
     firmware-iwlwifi \
     libpam-fprintd \
-    fprint-demo
+    fprint-demo \
+    editorconfig
 
 # turn on wifi (without restart)
 modprobe -r iwlwifi ; modprobe iwlwifi
