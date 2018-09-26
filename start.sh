@@ -1,11 +1,15 @@
 #!/bin/bash
 
+# netinstall (with nonfree firmware)
+# https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/9.5.0+nonfree/amd64/iso-cd/firmware-9.5.0-amd64-netinst.iso
+
 # init as root
 su root
 apt-get update
 apt-get install \
     apt-transport-https \
     git \
+    curl \
     sudo
 
 # add ryan to sudo group
@@ -29,12 +33,12 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt update
 sudo apt install \
     vim-gnome \
-    curl \
     sublime-text \
     firmware-iwlwifi \
     libpam-fprintd \
     fprint-demo \
-    editorconfig
+    editorconfig \
+    htop
 
 # turn on wifi (without restart)
 modprobe -r iwlwifi ; modprobe iwlwifi
