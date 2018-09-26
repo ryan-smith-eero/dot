@@ -10,6 +10,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'matze/vim-move'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 filetype plugin indent on
@@ -35,7 +36,7 @@ set showmatch
 set ruler
 set wrap
 set guicursor+=a:blinkon0
-" set laststatus=2
+set laststatus=2
 
 " auto
 set autoread
@@ -58,9 +59,6 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.pyo$', '\.pyc$', '\.svn[\//]$', '\.swp$'
 map <C-o> :NERDTreeToggle<CR>
 " end if nerdtree is only remaining buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" editorconfig
-" let g:EditorConfig_core_mode = 'python_external'
 
 " redraw
 map ;l :redraw!<CR>
