@@ -55,12 +55,11 @@ let g:move_key_modifier = 'C'
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.vim$', '\~$', '\.pyo$', '\.pyc$', '\.svn[\//]$', '\.swp$']
 map <C-o> :NERDTreeToggle<CR>
-
 " end if nerdtree is only remaining buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " editorconfig
-let g:EditorConfig_core_mode = 'external_command'
+" let g:EditorConfig_core_mode = 'python_external'
 
 " redraw
 map ;l :redraw!<CR>
