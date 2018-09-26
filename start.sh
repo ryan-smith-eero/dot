@@ -5,7 +5,13 @@ su root
 apt-get update
 apt-get install \
     git \
-    sudo
+    sudo \
+    firmware-iwlwifi \
+    libpam-fprintd \
+    fprint-demo
+
+# turn on wifi (without restart)
+modprobe -r iwlwifi ; modprobe iwlwifi
 
 # add ryan to sudo group
 usermod -aG sudo ryan
@@ -24,15 +30,9 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt update
 sudo apt install \ 
     sublime-text \
-    firmware-iwlwifi \
     vim \
     curl \
-    libpam-fprintd \
-    fprint-demo \
     apt-transport-https
-
-# turn on wifi (without restart)
-modprobe -r iwlwifi ; modprobe iwlwifi
 
 # keybase
 sudo curl -O https://prerelease.keybase.io/keybase_amd64.deb
