@@ -35,7 +35,7 @@ set showmatch
 set ruler
 set wrap
 set guicursor+=a:blinkon0
-set laststatus=2
+" set laststatus=2
 
 " auto
 set autoread
