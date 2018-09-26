@@ -4,14 +4,9 @@
 su root
 apt-get update
 apt-get install \
+    apt-transport-https \
     git \
-    sudo \
-    firmware-iwlwifi \
-    libpam-fprintd \
-    fprint-demo
-
-# turn on wifi (without restart)
-modprobe -r iwlwifi ; modprobe iwlwifi
+    sudo
 
 # add ryan to sudo group
 usermod -aG sudo ryan
@@ -20,7 +15,7 @@ usermod -aG sudo ryan
 exit
 
 # add non-free sources
-echo "deb http://httpredir.debian.org/debian/ stretch main contrib non-free" | sudo teee /etc/apt/sources.list.d/non-free.list
+echo "deb http://httpredir.debian.org/debian/ stretch main contrib non-free" | sudo tee /etc/apt/sources.list.d/non-free.list
 
 # add sublime gpg key and source
 sudo wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
@@ -28,11 +23,16 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 
 # update sources and install
 sudo apt update
-sudo apt install \ 
+sudo apt install \
     sublime-text \
     vim \
     curl \
-    apt-transport-https
+    firmware-iwlwifi \
+    libpam-fprintd \
+    fprint-demo
+
+# turn on wifi (without restart)
+modprobe -r iwlwifi ; modprobe iwlwifi
 
 # keybase
 sudo curl -O https://prerelease.keybase.io/keybase_amd64.deb
