@@ -9,6 +9,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'matze/vim-move'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'terryma/vim-multiple-cursors'
 
 call vundle#end()
 filetype plugin indent on
