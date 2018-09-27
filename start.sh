@@ -45,16 +45,14 @@ apt() {
 }
 
 # manual installs
-# firefox
 firefox() {
     curl -fsSL -o firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=en-US"
     sudo tar -C /opt -xvf firefox.tar.bz2
     sudo rm -rf firefox.tar.bz2
-    sudo ln -sf "$(pwd)"/firefox.desktop /usr/share/applications/firefox.desktop
+    sudo ln -sf "$(pwd)"/firefox/firefox.desktop /usr/share/applications/firefox.desktop
     sudo apt-get -y remove firefox-esr
 }
 
-# keybase
 keybase() {
     sudo curl -O https://prerelease.keybase.io/keybase_amd64.deb
     sudo dpkg -i keybase_amd64.deb
@@ -63,9 +61,16 @@ keybase() {
     run_keybase
 }
 
+config() {
+    ln -sf "$(pwd)"/editor/.editorconfig ~/.editorconfig
+    ln -sf "$(pwd)"/vim/.vimrc ~/.vimrc
+    ln -sf "$(pwd)"/bash/.bashrc ~/.bashrc
+}
+
 ginit
 sources
 keys
 apt
 firefox
 keybase
+config
