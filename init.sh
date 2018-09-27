@@ -18,10 +18,15 @@ init() {
     modprobe -r iwlwifi && modprobe iwlwifi
 }
 
+sudoers() {
+    echo "ryan ALL=(ALL:ALL) ALL" > /etc/sudoers.d/ryan
+}
+
 sshconf() {
     mkdir ~/.ssh && ssh-keyscan -H github.com >> ~/.ssh/known_hosts
     ssh-keygen -t rsa -b 4096 -C "ryan.smith.p@gmail.com" -f $HOME/.ssh/key_name.pem
 }
 
 init
+sudoers
 sshconf
