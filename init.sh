@@ -12,8 +12,10 @@ init() {
         apt-transport-https \
         git \
         sudo \
-        lsb-release
+        lsb-release \
+        firmware-iwlwifi
     usermod -aG sudo ryan   # add ryan to sudo group
+    modprobe -r iwlwifi && modprobe iwlwifi
 }
 
 sshconf() {
