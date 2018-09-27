@@ -6,7 +6,7 @@
 set -euxo pipefail
 
 # configure git
-git() {
+ginit() {
     git config --global user.name "RPSeq"
     git config --global user.email "ryan.smith.p@gmail.com"
 }
@@ -26,8 +26,8 @@ keys() {
 
 # update sources and install
 apt() {
-    sudo apt-get update
-    sudo apt-get install \
+    sudo apt-get -y update
+    sudo apt-get -y install \
         vim-gnome \
         sublime-text \
         libpam-fprintd \
@@ -51,19 +51,19 @@ firefox() {
     sudo tar -C /opt -xvf firefox.tar.bz2
     sudo rm -rf firefox.tar.bz2
     sudo ln -sf "$(pwd)"/firefox.desktop /usr/share/applications/firefox.desktop
-    sudo apt-get remove firefox-esr
+    sudo apt-get -y remove firefox-esr
 }
 
 # keybase
 keybase() {
     sudo curl -O https://prerelease.keybase.io/keybase_amd64.deb
     sudo dpkg -i keybase_amd64.deb
-    sudo apt-get install -f
+    sudo apt-get -y install -f
+    sudo rm -rf keybase_amd64.deb
     run_keybase
 }
 
-init
-git
+ginit
 sources
 keys
 apt

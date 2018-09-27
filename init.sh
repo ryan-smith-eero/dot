@@ -7,8 +7,8 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 init() {
-    apt-get update
-    apt-get install \
+    apt-get -y update
+    apt-get -y install \
         apt-transport-https \
         git \
         sudo \
