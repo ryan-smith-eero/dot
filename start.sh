@@ -5,20 +5,6 @@
 
 set -euxo pipefail
 
-# init as root
-init() {
-    su root                 # as root
-    apt-get update
-    apt-get install \
-        apt-transport-https \
-        git \
-        sudo \
-        lsb-release
-    usermod -aG sudo ryan   # add ryan to sudo group
-    exit                    # leave root
-}
-
-
 # configure git
 git() {
     git config --global user.name "RPSeq"
