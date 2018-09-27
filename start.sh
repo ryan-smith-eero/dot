@@ -25,7 +25,7 @@ keys() {
 }
 
 # update sources and install
-apt() {
+install() {
     sudo apt-get -y update
     sudo apt-get -y install \
         vim-gnome \
@@ -43,7 +43,7 @@ apt() {
         python-pip \
         xclip \
         firmware-iwlwifi
-    modprobe -r iwlwifi && modprobe iwlwifi
+    sudo modprobe -r iwlwifi && sudo modprobe iwlwifi
 }
 
 # manual installs
@@ -55,12 +55,8 @@ firefox() {
     sudo apt-get -y remove firefox-esr
 }
 
-keybase() {
-    sudo curl -O https://prerelease.keybase.io/keybase_amd64.deb
-    sudo dpkg -i keybase_amd64.deb
-    sudo apt-get -y install -f
-    sudo rm -rf keybase_amd64.deb
-    run_keybase
+vundle() {
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 }
 
 config() {
@@ -69,10 +65,18 @@ config() {
     ln -sf "$(pwd)"/bash/.bashrc ~/.bashrc
 }
 
+keybase() {
+    curl -fsSL -o keybase_amd64.deb "https://prerelease.keybase.io/keybase_amd64.deb"
+    sudo dpkg -i keybase_amd64.deb
+    sudo apt -f install -y
+    rm -rf keybase_amd64.deb
+}
+
 ginit
 sources
 keys
-apt
+install
 firefox
-keybase
+vundle
 config
+keybase
