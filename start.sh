@@ -41,7 +41,9 @@ apt() {
         docker-ce \
         python \
         python-pip \
-        xclip
+        xclip \
+        firmware-iwlwifi
+    modprobe -r iwlwifi && modprobe iwlwifi
 }
 
 # manual installs
