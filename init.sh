@@ -14,7 +14,6 @@ init() {
         sudo \
         lsb-release \
         firmware-iwlwifi
-    usermod -aG sudo ryan   # add ryan to sudo group
     modprobe -r iwlwifi && modprobe iwlwifi
 }
 
