@@ -12,9 +12,7 @@ init() {
         apt-transport-https \
         git \
         sudo \
-        lsb-release \
-        firmware-iwlwifi
-    modprobe -r iwlwifi && modprobe iwlwifi
+        lsb-release
 }
 
 sudoers() {
