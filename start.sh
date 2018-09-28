@@ -42,6 +42,7 @@ install() {
         python \
         python-pip \
         xclip \
+        tmux \
         firmware-iwlwifi
     sudo modprobe -r iwlwifi && sudo modprobe iwlwifi
 }
