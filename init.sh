@@ -12,6 +12,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 init() {
+    wget -qO /etc/apt/sources.list https://raw.githubusercontent.com/RPSeq/dot/master/apt/sources.list
     apt-get -y update
     apt-get -y install \
         apt-transport-https \
