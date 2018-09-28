@@ -43,7 +43,10 @@ install() {
         python-pip \
         xclip \
         tmux \
-        firmware-iwlwifi
+        firmware-iwlwifi \
+		firmware-linux-nonfree \
+        plymouth \
+        plymouth-themes
     sudo modprobe -r iwlwifi && sudo modprobe iwlwifi
 }
 
@@ -68,6 +71,13 @@ config() {
     sudo sed -ie 's/^Exec=gnome-terminal/Exec=gnome-terminal --maximize/g' /usr/share/applications/org.gnome.Terminal.desktop
 }
 
+plymouth() {
+    sudo cp -f "$(pwd)"/initramfs-tools/modules /etc/initramfs-tools/modules
+    sudo cp -f "$(pwd)"/grub/grub /etc/default/grub
+    sudo update-grub2
+    sudo plymouth-set-default-theme -R details
+}
+
 keybase() {
     sudo curl -fsSL -o keybase_amd64.deb "https://prerelease.keybase.io/keybase_amd64.deb"
     sudo dpkg --force-all -i keybase_amd64.deb
@@ -87,5 +97,6 @@ install
 firefox
 vundle
 config
+plymouth
 keybase
 rem
