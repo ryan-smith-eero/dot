@@ -11,6 +11,8 @@ set -euxo pipefail
 ginit() {
     git config --global user.name "RPSeq"
     git config --global user.email "ryan.smith.p@gmail.com"
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/key_name.pem
 }
 
 # add sources

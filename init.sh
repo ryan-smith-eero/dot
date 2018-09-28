@@ -25,10 +25,15 @@ sudoers() {
 }
 
 sshconf() {
-    mkdir ~/.ssh && ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-    ssh-keygen -t rsa -b 4096 -C "ryan.smith.p@gmail.com" -f $HOME/.ssh/key_name.pem
+    sudo -u ryan -i mkdir /home/ryan/.ssh && ssh-keyscan -H github.com >> /home/ryan/.ssh/known_hosts
+    sudo -u ryan -i ssh-keygen -t rsa -b 4096 -C "ryan.smith.p@gmail.com" -f /home/ryan/.ssh/key_name.pem
+}
+
+loader() {
+    sudo -u ryan -i git clone https://github.com/RPSeq/dot.git /home/ryan/dot
 }
 
 init
 sudoers
 sshconf
+loader
