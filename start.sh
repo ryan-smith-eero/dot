@@ -63,7 +63,7 @@ config() {
     ln -sf "$(pwd)"/editor/.editorconfig ~/.editorconfig
     ln -sf "$(pwd)"/vim/.vimrc ~/.vimrc
     ln -sf "$(pwd)"/bash/.bashrc ~/.bashrc
-    ln -sf "$(pwd)"/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
+    ln -sf "$(pwd)"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
 }
 
 keybase() {
@@ -77,6 +77,7 @@ keybase() {
 rem() {
     sudo apt-get autoremove -y
 }
+
 ginit
 sources
 keys
