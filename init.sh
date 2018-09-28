@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#------------------------------------------------------------------------------
+# File:   $HOME/init.sh
+# Author: Ryan Smith  <ryan.smith.p@gmail.com>
+#------------------------------------------------------------------------------
+
 # init needs root
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root"

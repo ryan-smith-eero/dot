@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# netinstall (with nonfree firmware)
-# https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/9.5.0+nonfree/amd64/iso-cd/firmware-9.5.0-amd64-netinst.iso
+#------------------------------------------------------------------------------
+# File:   $HOME/start.sh
+# Author: Ryan Smith  <ryan.smith.p@gmail.com>
+#------------------------------------------------------------------------------
 
 set -euxo pipefail
 
