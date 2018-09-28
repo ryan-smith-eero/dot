@@ -65,6 +65,7 @@ config() {
     ln -sf "$(pwd)"/vim/.vimrc ~/.vimrc
     ln -sf "$(pwd)"/bash/.bashrc ~/.bashrc
     ln -sf "$(pwd)"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
+    sudo sed -ie 's/^Exec=gnome-terminal/Exec=gnome-terminal --maximize/g' /usr/share/applications/org.gnome.Terminal.desktop
 }
 
 keybase() {
