@@ -47,7 +47,9 @@ install() {
 		firmware-linux-nonfree \
         plymouth \
         plymouth-themes
+    set +e
     sudo modprobe -r iwlwifi && sudo modprobe iwlwifi
+    set -e
 }
 
 # manual installs
@@ -60,7 +62,9 @@ firefox() {
 }
 
 vundle() {
+    set +e
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    set -e
 }
 
 config() {
@@ -75,7 +79,12 @@ plymouth() {
     sudo cp -f "$(pwd)"/initramfs-tools/modules /etc/initramfs-tools/modules
     sudo cp -f "$(pwd)"/grub/grub /etc/default/grub
     sudo update-grub2
-    sudo plymouth-set-default-theme -R details
+    git clone https://gitlab.com/maurom/deb10.git
+    cd deb10
+    sudo make install
+    cd ..
+    sudo rm -rf deb10
+    sudo plymouth-set-default-theme -R deb10
 }
 
 keybase() {
