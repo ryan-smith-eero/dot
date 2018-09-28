@@ -12,12 +12,14 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
+Plugin 'gilgigilgil/anderson.vim'
 
 call vundle#end()
 filetype plugin indent on
 
 " syntax highlighting
 syntax enable
+colorscheme anderson
 
 " backspace
 set backspace=indent,eol,start
