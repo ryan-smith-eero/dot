@@ -12,7 +12,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
-Plugin 'rakr/vim-one'
+Plugin 'srcery-colors/srcery-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -20,7 +20,7 @@ filetype plugin indent on
 " syntax highlighting
 syntax enable
 set background=dark
-colorscheme one
+colorscheme srcery
 
 "Credit joshdick
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
