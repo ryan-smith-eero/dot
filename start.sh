@@ -17,7 +17,6 @@ ginit() {
 
 # add sources
 sources() {
-    echo "deb http://httpredir.debian.org/debian/ stretch main contrib non-free" | sudo tee /etc/apt/sources.list.d/non-free.list
     echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
     echo "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
 }
