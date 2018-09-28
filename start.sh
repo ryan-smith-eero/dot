@@ -49,7 +49,7 @@ install() {
 
 # manual installs
 firefox() {
-    curl -fsSL -o firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=en-US"
+    sudo curl -fsSL -o firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=en-US"
     sudo tar -C /opt -xvf firefox.tar.bz2
     sudo rm -rf firefox.tar.bz2
     sudo ln -sf "$(pwd)"/firefox/firefox.desktop /usr/share/applications/firefox.desktop
@@ -68,10 +68,10 @@ config() {
 }
 
 keybase() {
-    curl -fsSL -o keybase_amd64.deb "https://prerelease.keybase.io/keybase_amd64.deb"
+    sudo curl -fsSL -o keybase_amd64.deb "https://prerelease.keybase.io/keybase_amd64.deb"
     sudo dpkg --force-all -i keybase_amd64.deb
     sudo apt-get install -yf
-    rm -rf keybase_amd64.deb
+    sudo rm -rf keybase_amd64.deb
     run_keybase
 }
 
