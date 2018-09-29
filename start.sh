@@ -19,12 +19,14 @@ ginit() {
 sources() {
     echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
     echo "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
+    echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" | sudo tee /etc/apt/sources.list.d/atom.list
 }
 
 # add apt keys
 keys() {
     sudo wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
     sudo wget -qO - https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+    sudo wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
 }
 
 # update sources and install
@@ -49,7 +51,8 @@ install() {
         firmware-iwlwifi \
 		firmware-linux-nonfree \
         plymouth \
-        plymouth-themes
+        plymouth-themes \
+        atom
     set +e
     sudo modprobe -r iwlwifi && sudo modprobe iwlwifi
     set -e
@@ -69,6 +72,14 @@ chrome() {
     sudo dpkg --force-all -i chrome.deb
     sudo apt-get install -yf
     sudo rm -rf chrome.deb
+    sudo apt-get remove chromium
+}
+
+vscode() {
+    sudo curl -fsSL -o vscode.deb "https://go.microsoft.com/fwlink/?LinkID=760868"
+    sudo dpkg --force-all -i vscode.deb
+    sudo apt-get install -yf
+    sudo rm -rf vscode.deb
 }
 
 vundle() {
@@ -122,6 +133,7 @@ keys
 install
 firefox
 chrome
+vscode
 vundle
 config
 plymouth
