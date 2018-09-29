@@ -64,6 +64,13 @@ firefox() {
     sudo apt-get -y remove firefox-esr
 }
 
+chrome() {
+    sudo curl -fsSL -o chrome.deb "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+    sudo dpkg --force-all -i chrome.deb
+    sudo apt-get install -yf
+    sudo rm -rf chrome.deb
+}
+
 vundle() {
     set +e
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -90,6 +97,13 @@ plymouth() {
     sudo plymouth-set-default-theme -R deb10
 }
 
+discord()  {
+    sudo curl -fsSL -o discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
+    sudo dpkg --force-all -i discord.deb
+    sudo apt-get install -yf
+    sudo rm -rf discord.deb
+}
+
 keybase() {
     sudo curl -fsSL -o keybase_amd64.deb "https://prerelease.keybase.io/keybase_amd64.deb"
     sudo dpkg --force-all -i keybase_amd64.deb
@@ -107,8 +121,10 @@ sources
 keys
 install
 firefox
+chrome
 vundle
 config
 plymouth
+discord
 keybase
 rem
