@@ -122,6 +122,7 @@ keybase() {
 
 rem() {
     sudo apt-get autoremove -y
+    gsettings set org.gnome.settings-daemon.plugins.orientation active false
 }
 
 ginit
