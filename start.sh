@@ -62,6 +62,12 @@ install() {
     set -e
 }
 
+wallpaper() {
+    sudo mkdir -p /usr/share/backgrounds/debian
+    sudo chown ryan -R /usr/share/backgrounds/debian
+    ln -sf "$(pwd)"/images /usr/share/backgrounds/debian
+}
+
 # manual installs
 firefox() {
     sudo curl -fsSL -o firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=en-US"
@@ -122,13 +128,13 @@ keybase() {
 
 rem() {
     sudo apt-get autoremove -y
-    gsettings set org.gnome.settings-daemon.plugins.orientation active false
 }
 
 ginit
 sources
 keys
 install
+wallpaper
 firefox
 chrome
 vundle
