@@ -1,5 +1,5 @@
 # dot
 
-su
-wget -qO - https://github.com/RPSeq/dot/raw/master/init.sh | bash -
-
+Download init.sh, run as root.
+Then run start.sh as user.
+Boom!
