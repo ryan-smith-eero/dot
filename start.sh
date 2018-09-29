@@ -118,6 +118,18 @@ discord()  {
     sudo rm -rf discord.deb
 }
 
+steam() {
+    sudo dpkg --add-architecture i386
+    sudo apt-get update
+    sudo apt-get install steam
+}
+
+slack() {
+    sudo curl -fsSL -o slack.deb "https://downloads.slack-edge.com/linux_releases/slack-desktop-3.3.1-amd64.deb"
+    sudo dpkg --force-all -i slack.deb
+    sudo rm -rf slack.deb
+}
+
 keybase() {
     sudo curl -fsSL -o keybase_amd64.deb "https://prerelease.keybase.io/keybase_amd64.deb"
     sudo dpkg --force-all -i keybase_amd64.deb
@@ -141,5 +153,7 @@ vundle
 config
 plymouth
 discord
+steam
+slack
 keybase
 rem
