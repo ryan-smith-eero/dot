@@ -51,7 +51,7 @@ install() {
         xclip \
         tmux \
         firmware-iwlwifi \
-		firmware-linux-nonfree \
+	firmware-linux-nonfree \
         plymouth \
         plymouth-themes \
         atom \
@@ -64,7 +64,7 @@ install() {
 
 wallpaper() {
     sudo mkdir -p /usr/share/backgrounds/debian
-    sudo chown ryan -R /usr/share/backgrounds/debian
+    sudo chown rsmith -R /usr/share/backgrounds/debian
     ln -sf "$(pwd)"/images /usr/share/backgrounds/debian
 }
 
@@ -92,16 +92,16 @@ vundle() {
 }
 
 config() {
-    ln -sf "$(pwd)"/editor/.editorconfig ~/.editorconfig
-    ln -sf "$(pwd)"/vim/.vimrc ~/.vimrc
-    ln -sf "$(pwd)"/bash/.bashrc ~/.bashrc
-    ln -sf "$(pwd)"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
+    ln -sf /home/rsmith/dot/editor/.editorconfig ~/.editorconfig
+    ln -sf /home/rsmith/dot/vim/.vimrc ~/.vimrc
+    ln -sf /home/rsmith/dot/bash/.bashrc ~/.bashrc
+    ln -sf /home/rsmith/dot/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
     sudo sed -ie 's/^Exec=gnome-terminal/Exec=gnome-terminal --maximize/g' /usr/share/applications/org.gnome.Terminal.desktop
 }
 
 plymouth() {
-    sudo cp -f "$(pwd)"/initramfs-tools/modules /etc/initramfs-tools/modules
-    sudo cp -f "$(pwd)"/grub/grub /etc/default/grub
+    sudo cp -f /home/rsmith/dot/initramfs-tools/modules /etc/initramfs-tools/modules
+    sudo cp -f /home/rsmith/dot/grub/grub /etc/default/grub
     sudo update-grub2
     git clone https://gitlab.com/maurom/deb10.git
     cd deb10
