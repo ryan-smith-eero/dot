@@ -55,7 +55,9 @@ install() {
         plymouth \
         plymouth-themes \
         atom \
-        code
+        code \
+        tlp \
+        tlp-rdw
 
     set +e
     sudo modprobe -r iwlwifi && sudo modprobe iwlwifi
