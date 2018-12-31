@@ -51,7 +51,7 @@ install() {
         xclip \
         tmux \
         firmware-iwlwifi \
-	firmware-linux-nonfree \
+	    firmware-linux-nonfree \
         plymouth \
         plymouth-themes \
         atom \
