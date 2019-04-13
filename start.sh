@@ -18,7 +18,8 @@ install() {
         python \
         python-pip \
         xclip \
-        tmux
+        tmux \
+        gnome-shell-extensions
 }
 
 vundle() {
@@ -31,6 +32,7 @@ config() {
     ln -sf ${DIR}/editor/.editorconfig ~/.editorconfig
     ln -sf ${DIR}/vim/.vimrc ~/.vimrc
     ln -sf ${DIR}/bash/.bashrc ~/.bashrc
+    ln -sf ${DIR}/bash/.git-status.bash ~/.git-status.bash
     ln -sf ${DIR}/gtk/gtk.css ~/.config/gtk-3.0/gtk.css
 }
 
