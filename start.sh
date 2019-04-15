@@ -19,7 +19,8 @@ install() {
         python-pip \
         xclip \
         tmux \
-        gnome-shell-extensions
+        gnome-shell-extensions \
+        gimp
 }
 
 vundle() {
