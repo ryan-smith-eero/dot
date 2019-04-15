@@ -20,7 +20,9 @@ install() {
         xclip \
         tmux \
         gnome-shell-extensions \
-        gimp
+        gimp \
+        libc++abi1 \
+        libc++1
 }
 
 vundle() {
@@ -29,6 +31,11 @@ vundle() {
     set -e
 }
 
+discord() {
+    curl -o discord.deb -L 'https://discordapp.com/api/download?platform=linux&format=deb'
+    sudo dpkg -i discord.deb
+    sudo rm -f discord.deb
+}
 config() {
     ln -sf ${DIR}/editor/.editorconfig ~/.editorconfig
     ln -sf ${DIR}/vim/.vimrc ~/.vimrc
@@ -43,5 +50,6 @@ rem() {
 
 install
 vundle
+discord
 config
 rem
