@@ -39,6 +39,14 @@ discord() {
     sudo dpkg -i discord.deb
     sudo rm -f discord.deb
 }
+
+scala() {
+    echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
+    sudo apt-get update
+    sudo apt-get install sbt
+}
+
 config() {
     ln -sf ${DIR}/editor/.editorconfig ~/.editorconfig
     ln -sf ${DIR}/vim/.vimrc ~/.vimrc
@@ -51,8 +59,9 @@ rem() {
     sudo apt-get autoremove -y
 }
 
-install
-vundle
-discord
-config
-rem
+#install
+#vundle
+#discord
+scala
+#config
+#rem
