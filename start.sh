@@ -22,7 +22,10 @@ install() {
         gnome-shell-extensions \
         gimp \
         libc++abi1 \
-        libc++1
+        libc++1 \
+        jq \
+        network-manager-openvpn \
+        openvpn
 }
 
 vundle() {
