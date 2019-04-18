@@ -77,6 +77,7 @@ config() {
     ln -sf ${DIR}/bash/.bashrc ~/.bashrc
     ln -sf ${DIR}/bash/.git-status.bash ~/.git-status.bash
     ln -sf ${DIR}/gtk/gtk.css ~/.config/gtk-3.0/gtk.css
+    sudo ln -sf ${DIR}/docker/daemon.json /etc/docker/daemon.json
 }
 
 rem() {
